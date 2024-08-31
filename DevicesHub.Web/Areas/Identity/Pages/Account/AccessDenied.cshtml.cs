@@ -2,9 +2,10 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
+using CyberMart;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CyberMart.Areas.Identity.Pages.Account
+namespace DevicesHub.Web.Areas.Identity.Pages.Account
 {
     /// <summary>
     ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used

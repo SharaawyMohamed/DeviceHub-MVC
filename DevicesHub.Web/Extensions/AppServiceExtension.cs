@@ -2,6 +2,7 @@
 using DevicesHub.Application.MappingProfiles;
 using DevicesHub.Application.Services;
 using DevicesHub.Domain.Interfaces;
+using DevicesHub.Domain.Models;
 using DevicesHub.Domain.Services;
 using DevicesHub.Infrastructure.Data.Contexts;
 using DevicesHub.Infrastructure.Repositories;
@@ -25,7 +26,7 @@ namespace DevicesHub.Web.Extensions
 
             Services.Configure<StripeData>(Configuration.GetSection("stripe"));
 
-           Services.AddIdentity<IdentityUser, IdentityRole>(
+           Services.AddIdentity<ApplicationUser, IdentityRole>(
                              options => options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromHours(4))
                             .AddDefaultTokenProviders()
                             .AddDefaultUI()
