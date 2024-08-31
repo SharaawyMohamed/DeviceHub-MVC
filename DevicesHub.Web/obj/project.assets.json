@@ -9120,11 +9120,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Web\\DevicesHub.Web.csproj",
+      "projectUniqueName": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\DevicesHub.Web.csproj",
       "projectName": "DevicesHub.Web",
-      "projectPath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Web\\DevicesHub.Web.csproj",
+      "projectPath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\DevicesHub.Web.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Web\\obj\\",
+      "outputPath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9141,11 +9141,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Application\\DevicesHub.Application.csproj": {
-              "projectPath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Application\\DevicesHub.Application.csproj"
+            "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Application\\DevicesHub.Application.csproj": {
+              "projectPath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Application\\DevicesHub.Application.csproj"
             },
-            "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Domain\\DevicesHub.Domain.csproj": {
-              "projectPath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Domain\\DevicesHub.Domain.csproj"
+            "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Domain\\DevicesHub.Domain.csproj": {
+              "projectPath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Domain\\DevicesHub.Domain.csproj"
             }
           }
         }

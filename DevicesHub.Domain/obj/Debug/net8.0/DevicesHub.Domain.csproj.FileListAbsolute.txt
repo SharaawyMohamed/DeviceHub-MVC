@@ -10,3 +10,16 @@ F:\ROUTE\Projects\DevicesHub\DevicesHub.Domain\obj\Debug\net8.0\DevicesHub.Domai
 F:\ROUTE\Projects\DevicesHub\DevicesHub.Domain\obj\Debug\net8.0\refint\DevicesHub.Domain.dll
 F:\ROUTE\Projects\DevicesHub\DevicesHub.Domain\obj\Debug\net8.0\DevicesHub.Domain.pdb
 F:\ROUTE\Projects\DevicesHub\DevicesHub.Domain\obj\Debug\net8.0\ref\DevicesHub.Domain.dll
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\bin\Debug\net8.0\DevicesHub.Domain.deps.json
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\bin\Debug\net8.0\DevicesHub.Domain.dll
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\bin\Debug\net8.0\DevicesHub.Domain.pdb
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\obj\Debug\net8.0\DevicesHub.Domain.csproj.AssemblyReference.cache
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\obj\Debug\net8.0\DevicesHub.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\obj\Debug\net8.0\DevicesHub.Domain.AssemblyInfoInputs.cache
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\obj\Debug\net8.0\DevicesHub.Domain.AssemblyInfo.cs
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\obj\Debug\net8.0\DevicesHub.Domain.csproj.CoreCompileInputs.cache
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\obj\Debug\net8.0\DevicesHub.Domain.sourcelink.json
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\obj\Debug\net8.0\DevicesHub.Domain.dll
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\obj\Debug\net8.0\refint\DevicesHub.Domain.dll
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\obj\Debug\net8.0\DevicesHub.Domain.pdb
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Domain\obj\Debug\net8.0\ref\DevicesHub.Domain.dll

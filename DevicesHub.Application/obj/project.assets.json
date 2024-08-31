@@ -6470,11 +6470,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Application\\DevicesHub.Application.csproj",
+      "projectUniqueName": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Application\\DevicesHub.Application.csproj",
       "projectName": "DevicesHub.Application",
-      "projectPath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Application\\DevicesHub.Application.csproj",
+      "projectPath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Application\\DevicesHub.Application.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Application\\obj\\",
+      "outputPath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6491,11 +6491,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Domain\\DevicesHub.Domain.csproj": {
-              "projectPath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Domain\\DevicesHub.Domain.csproj"
+            "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Domain\\DevicesHub.Domain.csproj": {
+              "projectPath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Domain\\DevicesHub.Domain.csproj"
             },
-            "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Infrastructure\\DevicesHub.Infrastructure.csproj": {
-              "projectPath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Infrastructure\\DevicesHub.Infrastructure.csproj"
+            "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Infrastructure\\DevicesHub.Infrastructure.csproj": {
+              "projectPath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Infrastructure\\DevicesHub.Infrastructure.csproj"
             }
           }
         }

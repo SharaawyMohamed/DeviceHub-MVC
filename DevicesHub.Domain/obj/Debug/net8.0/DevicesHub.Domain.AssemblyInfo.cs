@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DevicesHub.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+018165e6fe8a410120aea3cb9739358b90a84d95")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14f6c7fe4ac2cfb3a6966ce0415460382ba70b4c")]
 [assembly: System.Reflection.AssemblyProductAttribute("DevicesHub.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DevicesHub.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

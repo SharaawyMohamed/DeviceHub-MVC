@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xer4WWEpVA/XTLnlkE04jVpVRvMcKcc2OnJBXe413NaHvGKXIc8GPkYbtt6hZOWO95e0ux3X6OXkjiytDTYQSg==",
+  "dgSpecHash": "cazLRzWEBSYGu2xFjpVUET/7t1P+KIuF3u8tpZQJXHXS0UX0d50LXVyFoCEpnhWe883XYmsnMzhqU1UMHxnzTA==",
   "success": true,
-  "projectFilePath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Application\\DevicesHub.Application.csproj",
+  "projectFilePath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Application\\DevicesHub.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

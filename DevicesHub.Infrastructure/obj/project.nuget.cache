@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oMidRS6YNoucgi3YqqvmCf2P0pHTr9Lydta7MAD3mMOPt54/lgC0aafmHcYsEbs5I342GUUJRzvPSvinJ6yMgA==",
+  "dgSpecHash": "a4EUJ+91trne9KpMrrUlPVPxv7fUEV9DL9tERnOxvhUGAaQcS9jRnjGawtgZv4IAhnnGhH5dZ+0cPtRIQs7diw==",
   "success": true,
-  "projectFilePath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Infrastructure\\DevicesHub.Infrastructure.csproj",
+  "projectFilePath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Infrastructure\\DevicesHub.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

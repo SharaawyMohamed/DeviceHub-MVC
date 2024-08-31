@@ -5,6 +5,7 @@ using DevicesHub.Domain.Interfaces;
 using DevicesHub.Domain.Services;
 using DevicesHub.Infrastructure.Data.Contexts;
 using DevicesHub.Infrastructure.Repositories;
+using DevicesHub.Web.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -20,30 +21,9 @@ namespace DevicesHub.Web
 
             // AddCategoryAsync services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<DeviceHubDbContext>(options =>
-            {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
-            });
-
-            builder.Services.Configure<StripeData>(builder.Configuration.GetSection("stripe"));
-
-            builder.Services.AddIdentity<IdentityUser, IdentityRole>(
-                             options => options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromHours(4))
-                            .AddDefaultTokenProviders()
-                            .AddDefaultUI()
-                            .AddEntityFrameworkStores<DeviceHubDbContext>();
-
-            builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
-            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-            builder.Services.AddAutoMapper(M => M.AddProfile(new ProductProfile()));
-            builder.Services.AddSingleton<IEmailSender, EmailSender>();
-
-            builder.Services.AddScoped<IOrderDetailsService, OrderDetailsService>();
-            builder.Services.AddScoped<IOrderHeaderService, OrderHeaderService>();
-            builder.Services.AddScoped<ICategoryService, CategoryService>();
-            builder.Services.AddScoped<IProductService, ProductServices>();
-            builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
+           
+            // Service Extention
+            builder.Services.AddAppService(builder.Configuration);
 
             builder.Services.AddMemoryCache();
             builder.Services.AddSession();

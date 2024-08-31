@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6D7de8l5gsz4e6UVgJ6jdT95AqjjcCdMJ6xK/ife7uALJSh3IRPLUlHncYpi2cgPGtGNmfHXkJBzNZ7CILnG1g==",
+  "dgSpecHash": "8O4odh3Sg6sZriYMJZXzUo544ImHgLKq8HbeVmgI2SOG6cy1+gPjYy7y180BBf7rYPy7cWgR46zLYhvCWu+XTQ==",
   "success": true,
-  "projectFilePath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Domain\\DevicesHub.Domain.csproj",
+  "projectFilePath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Domain\\DevicesHub.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

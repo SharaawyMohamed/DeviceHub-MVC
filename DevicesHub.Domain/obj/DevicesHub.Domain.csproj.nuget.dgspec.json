@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Domain\\DevicesHub.Domain.csproj": {}
+    "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Domain\\DevicesHub.Domain.csproj": {}
   },
   "projects": {
-    "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Domain\\DevicesHub.Domain.csproj": {
+    "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Domain\\DevicesHub.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Domain\\DevicesHub.Domain.csproj",
+        "projectUniqueName": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Domain\\DevicesHub.Domain.csproj",
         "projectName": "DevicesHub.Domain",
-        "projectPath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Domain\\DevicesHub.Domain.csproj",
+        "projectPath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Domain\\DevicesHub.Domain.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "F:\\ROUTE\\Projects\\Device-Hub-MVC\\DevicesHub.Domain\\obj\\",
+        "outputPath": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
