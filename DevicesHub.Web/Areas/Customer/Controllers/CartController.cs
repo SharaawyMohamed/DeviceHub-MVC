@@ -6,14 +6,12 @@ using DevicesHub.Domain.Models;
 using DevicesHub.Domain.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Stripe;
-using Stripe.BillingPortal;
 using Stripe.Checkout;
 using Session = Stripe.Checkout.Session;
 using SessionCreateOptions = Stripe.Checkout.SessionCreateOptions;
 using SessionService = Stripe.Checkout.SessionService;
 
-namespace CyberMart.Areas.Customer.Controllers
+namespace DevicesHub.Web.Areas.Customer.Controllers
 {
     [Area(SD.CustomerRole)]
     [Authorize]
@@ -44,7 +42,7 @@ namespace CyberMart.Areas.Customer.Controllers
 
             foreach (var item in shoppingCartViewModel.CartsList)
             {
-                shoppingCartViewModel.OrderHeader.TotalPrice += (item.Count * item.Product.Price);
+                shoppingCartViewModel.OrderHeader.TotalPrice += item.Count * item.Product.Price;
             }
             return View(shoppingCartViewModel);
         }
@@ -101,7 +99,7 @@ namespace CyberMart.Areas.Customer.Controllers
 
             foreach (var item in shoppingCartViewModel.CartsList)
             {
-                shoppingCartViewModel.TotalPrices += (item.Count * item.Product.Price);
+                shoppingCartViewModel.TotalPrices += item.Count * item.Product.Price;
             }
             return View(shoppingCartViewModel);
         }
@@ -121,7 +119,7 @@ namespace CyberMart.Areas.Customer.Controllers
 
             foreach (var item in shoppingCartViewModel.CartsList)
             {
-                shoppingCartViewModel.OrderHeader.TotalPrice += (item.Count * item.Product.Price);
+                shoppingCartViewModel.OrderHeader.TotalPrice += item.Count * item.Product.Price;
             }
 
             await _orderHeader.AddOrderHeaderAsync(shoppingCartViewModel.OrderHeader);

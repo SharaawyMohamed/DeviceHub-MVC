@@ -9105,6 +9105,7 @@
     "net8.0": [
       "DevicesHub.Application >= 1.0.0",
       "DevicesHub.Domain >= 1.0.0",
+      "Microsoft.AspNetCore.Http.Abstractions >= 2.2.0",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 8.0.8",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.8",
       "Microsoft.Extensions.DependencyInjection >= 8.0.0",
@@ -9165,6 +9166,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
             "target": "Package",
             "version": "[8.0.8, )"

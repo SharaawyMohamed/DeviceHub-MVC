@@ -16,6 +16,6 @@ namespace DevicesHub.Infrastructure.Data.Contexts
 		public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 		public DbSet<OrderHeader> OrderHeaders { get; set; }
 		public DbSet<OrderDetails> OrderDetails { get; set; }
-		public DbSet<ApplicationUser> applicationUsers { get; set; }
+		//public DbSet<ApplicationUser> applicationUsers { get; set; }
 	}
 }

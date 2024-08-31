@@ -25,7 +25,7 @@ namespace DevicesHub.Web.Areas.Customer.Controllers
         {
             var PageNumber = page ?? 1;
             var PageSize = 4;
-            var products = (await _productService.GetAllProductsAsync()).ToPagedListAsync(PageNumber, PageSize);
+            var products = await (await _productService.GetAllProductsAsync()).ToPagedListAsync(PageNumber, PageSize);
             return View(products);
         }
 

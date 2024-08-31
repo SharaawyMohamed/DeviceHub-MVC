@@ -21,8 +21,8 @@ namespace DevicesHub.Web
 
             // AddCategoryAsync services to the container.
             builder.Services.AddControllersWithViews();
-           
-            // Service Extention
+
+            // Service Extension
             builder.Services.AddAppService(builder.Configuration);
 
             builder.Services.AddMemoryCache();
@@ -30,7 +30,8 @@ namespace DevicesHub.Web
             var app = builder.Build();
 
             // To Apply Migrations
-            await ApplyMigrations(app);
+            await ApplyMigrations.UpdatePendingMigrations(app);
+
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
@@ -60,28 +61,6 @@ namespace DevicesHub.Web
                  name: "Customer",
                  pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
             app.Run();
-        }
-        private static async Task ApplyMigrations(WebApplication app)
-        {
-            using(var scope = app.Services.CreateScope())
-            {
-                var service = scope.ServiceProvider;
-                var loggerFactory= service.GetRequiredService<ILoggerFactory>();
-                try
-                {
-                    var _context = service.GetRequiredService<DeviceHubDbContext>();
-                    var unApplyingMigrations = await _context.Database.GetPendingMigrationsAsync();
-                    if (unApplyingMigrations.Any())
-                    {
-                        await _context.Database.MigrateAsync();
-                    }
-                }
-                catch(Exception ex)
-                {
-                    var logger = loggerFactory.CreateLogger<Program>();
-                    logger.LogError(ex.Message);
-                }
-            }
         }
     }
 }
