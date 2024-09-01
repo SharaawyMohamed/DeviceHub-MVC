@@ -14,21 +14,23 @@ using SessionService = Stripe.Checkout.SessionService;
 namespace DevicesHub.Web.Areas.Customer.Controllers
 {
     [Area(SD.CustomerRole)]
-    [Authorize]
+   // [Authorize]
     public class CartController : Controller
     {
         private readonly IShoppingCartService _shoppingCartService;
         private readonly IOrderHeaderService _orderHeader;
         private readonly IOrderDetailsService _orderDetailsService;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IConfiguration _configuration;
         public ShoppingCartViewModel shoppingCartViewModel { get; set; }
         public int TotalCart { get; set; }
-        public CartController(IShoppingCartService shoppingCartService, IOrderHeaderService orderHeader, IOrderDetailsService orderDetailsService, IUnitOfWork unitOfWork)
+        public CartController(IShoppingCartService shoppingCartService, IOrderHeaderService orderHeader, IOrderDetailsService orderDetailsService, IUnitOfWork unitOfWork, IConfiguration configuration)
         {
             _shoppingCartService = shoppingCartService;
             _orderHeader = orderHeader;
             _orderDetailsService = orderDetailsService;
             _unitOfWork = unitOfWork;
+            _configuration = configuration;
         }
         public async Task<IActionResult> Index()
         {
@@ -137,7 +139,7 @@ namespace DevicesHub.Web.Areas.Customer.Controllers
                 await _orderDetailsService.AddOrderDetailsAsync(orderDetails);
             }
 
-            var domain = "https://localhost:44330/";
+            var domain = _configuration["DomainSettings:BaseUrl"];//"https://localhost:7157/";
             var options = new SessionCreateOptions
             {
                 LineItems = new List<SessionLineItemOptions>(),

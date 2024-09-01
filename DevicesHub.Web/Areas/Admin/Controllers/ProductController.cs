@@ -15,7 +15,6 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
         private readonly IMapper mapper;
         private readonly IProductService _productService;
 
-        //private readonly IWebHostEnvironment webHostEnvironment
 
         public ProductController(IMapper _mapper, IProductService productService)
         {
@@ -51,8 +50,7 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
             {
                 productVM.ImageName = DocumentSettings.UploadFile(productVM.Image, "Products");
                 var MappedProduct = mapper.Map<ProductViewModel, Product>(productVM);
-                //await _orderDetailsService.Product.AddAsync(MappedProduct);
-                //await _orderDetailsService.CompleteAsync();
+                
                 var Created = await _productService.AddProductAsync(MappedProduct);
                 if (Created > 0)
                 {

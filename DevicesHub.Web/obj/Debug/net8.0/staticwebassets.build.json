@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ODsB7FppZ14tkseyftCP+c7BLMoupnvRo6XTK1PoJnY=",
+  "Hash": "gN3bfNpa5LeJbHvA67IQWghtGBrDgd2+qW4Kw2y99WQ=",
   "Source": "DevicesHub.Web",
   "BasePath": "_content/DevicesHub.Web",
   "Mode": "Default",
@@ -813,6 +813,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Products\\2fc6cbd6-ab30-4d9c-88d5-2d449ff52c62Samsung-Galaxy-S24-Ultra-5G.jpg"
+    },
+    {
+      "Identity": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\3cc5cd37-354d-4fd1-81de-86d116cdb1b6desk.webp",
+      "SourceId": "DevicesHub.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\",
+      "BasePath": "_content/DevicesHub.Web",
+      "RelativePath": "Images/Products/3cc5cd37-354d-4fd1-81de-86d116cdb1b6desk.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Products\\3cc5cd37-354d-4fd1-81de-86d116cdb1b6desk.webp"
     },
     {
       "Identity": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\782941d2-7093-4d10-86de-0beb8ffd4bcemacbook.jpg",

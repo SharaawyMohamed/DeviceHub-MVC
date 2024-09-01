@@ -1,12 +1,7 @@
 ﻿using DevicesHub.Domain.Interfaces;
 using DevicesHub.Domain.Models;
 using DevicesHub.Domain.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevicesHub.Application.Services
 {
@@ -19,9 +14,10 @@ namespace DevicesHub.Application.Services
             _unitOfWork = unitOfWork;
         }
 
-        public Task<int> AddShoppingCartAsync(ShoppingCart entity)
+        public async Task<int> AddShoppingCartAsync(ShoppingCart entity)
         {
-            throw new NotImplementedException();
+            await _unitOfWork.Repository<ShoppingCart>().AddAsync(entity);
+            return await _unitOfWork.CompleteAsync();
         }
 
         public async Task<int> DecreaseCountAsync(ShoppingCart shoppingCart, int count)
@@ -50,19 +46,22 @@ namespace DevicesHub.Application.Services
             return ShoppingCart.Count;
         }
 
-        public Task<int> RemoveRangeOfShoppingCartsAsync(IEnumerable<ShoppingCart> entities)
+        public async Task<int> RemoveRangeOfShoppingCartsAsync(IEnumerable<ShoppingCart> entities)
         {
-            throw new NotImplementedException();
+             _unitOfWork.Repository<ShoppingCart>().RemoveRange(entities);
+            return await _unitOfWork.CompleteAsync();
         }
 
-        public Task<int> RemoveShoppingCartAsync(ShoppingCart entity)
+        public async Task<int> RemoveShoppingCartAsync(ShoppingCart entity)
         {
-            throw new NotImplementedException();
+             _unitOfWork.Repository<ShoppingCart>().Remove(entity);
+            return await _unitOfWork.CompleteAsync();
         }
 
-        public Task<int> UpdateShoppingCartAsync(ShoppingCart entity)
+        public async Task<int> UpdateShoppingCartAsync(ShoppingCart entity)
         {
-            throw new NotImplementedException();
+             _unitOfWork.Repository<ShoppingCart>().Update(entity);
+            return await _unitOfWork.CompleteAsync();
         }
     }
 }

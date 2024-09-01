@@ -23,7 +23,7 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
             var userId = claim.Value;
-            var Users = _userManager.Users.Where(U => U.Id != userId).ToListAsync();
+            var Users = await _userManager.Users.Where(U => U.Id != userId).ToListAsync();
             return View(Users);
         }
 

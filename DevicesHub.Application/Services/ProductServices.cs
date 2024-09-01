@@ -1,4 +1,5 @@
-﻿using DevicesHub.Domain.Interfaces;
+﻿using DevicesHub.Application.Settings;
+using DevicesHub.Domain.Interfaces;
 using DevicesHub.Domain.Models;
 using DevicesHub.Domain.Services;
 using System;
@@ -21,6 +22,7 @@ namespace DevicesHub.Application.Services
 
         public async Task<int> AddProductAsync(Product entity)
         {
+
             await _unitOfWork.Repository<Product>().AddAsync(entity);
             return await _unitOfWork.CompleteAsync();
 

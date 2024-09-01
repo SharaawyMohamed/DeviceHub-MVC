@@ -10,6 +10,7 @@ using X.PagedList;
 namespace DevicesHub.Web.Areas.Customer.Controllers
 {
     [Area(SD.CustomerRole)]
+    //[Authorize]
     public class HomeController : Controller
     {
         private readonly IUnitOfWork unitOfWork;

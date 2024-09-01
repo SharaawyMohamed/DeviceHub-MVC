@@ -1,4 +1,5 @@
 using DevicesHub.Web.Extensions;
+using DevicesHub.Web.SeedAdmin;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Stripe;
@@ -40,7 +41,7 @@ namespace DevicesHub.Web
             app.UseRouting();
 
             // Set Stripe configuration
-            StripeConfiguration.ApiKey = builder.Configuration.GetSection("stripe:Secretkey").Get<string>();
+            StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe")["SecretKey"]?.Trim();
 
             app.UseAuthentication();
             app.UseAuthorization();
@@ -55,6 +56,21 @@ namespace DevicesHub.Web
             app.MapControllerRoute(
                  name: "Customer",
                  pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    // Initialize seed data
+                    await SeedData.Initialize(services);
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occurred seeding the database.");
+                }
+            }
 
             app.Run();
         }

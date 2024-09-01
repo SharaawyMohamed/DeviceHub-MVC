@@ -15,18 +15,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using DevicesHub.Domain.Models;
+using DevicesHub.Application.External;
+using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 
 namespace DevicesHub.Web.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _userManager = userManager;
         }
 
         /// <summary>
@@ -112,12 +116,18 @@ namespace DevicesHub.Web.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
-                _logger.LogInformation($"Login attempt result: {result.ToString()}");
-
-                if (result.Succeeded)
+                var result =  await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                var user = await _userManager.FindByEmailAsync(Input.Email);
+                if (user is not null && await _userManager.CheckPasswordAsync(user,Input.Password))
                 {
                     _logger.LogInformation("User logged in.");
+                    //string Role = HttpContext.Request.Form["RoleRadio"].ToString();
+                    //if (string.IsNullOrEmpty(Role))
+                    //{
+                    //    Role = SD.CustomerRole;
+                    //}
+                  //  await _userManager.AddToRoleAsync(user, Role);
+                    await _signInManager.SignInAsync(user,isPersistent:false);
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

@@ -656,6 +656,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Products\2fc6cbd6-ab30-4d9c-88d5-2d449ff52c62Samsung-Galaxy-S24-Ultra-5G.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Products\3cc5cd37-354d-4fd1-81de-86d116cdb1b6desk.webp))">
+      <SourceType>Package</SourceType>
+      <SourceId>DevicesHub.Web</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DevicesHub.Web</BasePath>
+      <RelativePath>Images/Products/3cc5cd37-354d-4fd1-81de-86d116cdb1b6desk.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Products\3cc5cd37-354d-4fd1-81de-86d116cdb1b6desk.webp))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Products\782941d2-7093-4d10-86de-0beb8ffd4bcemacbook.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>DevicesHub.Web</SourceId>

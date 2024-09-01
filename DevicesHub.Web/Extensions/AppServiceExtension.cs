@@ -8,17 +8,15 @@ using DevicesHub.Infrastructure.Data.Contexts;
 using DevicesHub.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
 
 namespace DevicesHub.Web.Extensions
 {
     public static class AppServiceExtension
     {
-        public static IServiceCollection AddAppService(this IServiceCollection Services,IConfiguration Configuration)
+        public static IServiceCollection AddAppService(this IServiceCollection Services, IConfiguration Configuration)
         {
-            
+
             Services.AddDbContext<DeviceHubDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
@@ -26,11 +24,11 @@ namespace DevicesHub.Web.Extensions
 
             Services.Configure<StripeData>(Configuration.GetSection("stripe"));
 
-           Services.AddIdentity<ApplicationUser, IdentityRole>(
-                             options => options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromHours(4))
-                            .AddDefaultTokenProviders()
-                            .AddDefaultUI()
-                            .AddEntityFrameworkStores<DeviceHubDbContext>();
+            Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+                              options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromHours(4))
+                             .AddDefaultTokenProviders()
+                             .AddDefaultUI()
+                             .AddEntityFrameworkStores<DeviceHubDbContext>();
 
             Services.AddRazorPages().AddRazorRuntimeCompilation();
             Services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -44,7 +42,7 @@ namespace DevicesHub.Web.Extensions
             Services.AddScoped<IProductService, ProductServices>();
             Services.AddScoped<IShoppingCartService, ShoppingCartService>();
 
-            return  Services;
+            return Services;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace DevicesHub.Application.External
         public const string EditorRole = "Editor";
         public const string CustomerRole = "Customer";
         // ----------------------------
+
         public const string Pending = "Pending";
         public const string Approve = "Approve";
         public const string Proccessing = "Proccessing";
