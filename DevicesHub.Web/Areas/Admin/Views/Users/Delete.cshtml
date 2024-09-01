@@ -1,0 +1,39 @@
+﻿@model ApplicationUser
+@{
+	ViewBag.PageTitle = "User Management";
+	ViewBag.CardTitle = "Delete product";
+	Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Delete" enctype="multipart/form-data">
+			<input readonly type="hidden" asp-for="Id" />
+			<div class="form-group">
+				<label class="col-form-label" asp-for="Name">Name</label>
+				<input readonly class="form-control" asp-for="Name" />
+			</div>
+
+			<div class="form-group">
+				<label class="col-form-label" asp-for="Email">Email</label>
+				<input readonly class="form-control" asp-for="Email" />
+			</div>
+
+			<div class="form-group">
+				<label class="col-form-label" asp-for="Address">Address</label>
+				<input readonly class="form-control" asp-for="Address" />
+			</div>
+
+			<div class="form-group">
+				<label class="col-form-label" asp-for="City">City</label>
+				<input readonly class="form-control" asp-for="City" />
+			</div>
+
+			<button type="submit" value="Submit" class="btn btn-success mr-1">Delete</button>
+			<a asp-action="Index" class="btn btn-warning">Back to list</a>
+		</form>
+	</div>
+	
+</div>
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

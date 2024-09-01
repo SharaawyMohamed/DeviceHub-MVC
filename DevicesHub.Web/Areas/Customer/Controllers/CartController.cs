@@ -105,6 +105,7 @@ namespace DevicesHub.Web.Areas.Customer.Controllers
             }
             return View(shoppingCartViewModel);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Summary(ShoppingCartViewModel shoppingCartViewModel)

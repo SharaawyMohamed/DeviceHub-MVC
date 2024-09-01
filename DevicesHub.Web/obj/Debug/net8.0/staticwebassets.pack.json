@@ -33,10 +33,6 @@
       "PackagePath": "staticwebassets\\Images\\Products\\2fc6cbd6-ab30-4d9c-88d5-2d449ff52c62Samsung-Galaxy-S24-Ultra-5G.jpg"
     },
     {
-      "Id": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\3cc5cd37-354d-4fd1-81de-86d116cdb1b6desk.webp",
-      "PackagePath": "staticwebassets\\Images\\Products\\3cc5cd37-354d-4fd1-81de-86d116cdb1b6desk.webp"
-    },
-    {
       "Id": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\782941d2-7093-4d10-86de-0beb8ffd4bcemacbook.jpg",
       "PackagePath": "staticwebassets\\Images\\Products\\782941d2-7093-4d10-86de-0beb8ffd4bcemacbook.jpg"
     },
@@ -47,6 +43,10 @@
     {
       "Id": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\9cdcd788-9550-44fb-8bcd-f94b61203fe4macbook.jpg",
       "PackagePath": "staticwebassets\\Images\\Products\\9cdcd788-9550-44fb-8bcd-f94b61203fe4macbook.jpg"
+    },
+    {
+      "Id": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\b2cd9371-7392-4366-8625-c6a5fae9dc59On_Prayer_Mat.webp",
+      "PackagePath": "staticwebassets\\Images\\Products\\b2cd9371-7392-4366-8625-c6a5fae9dc59On_Prayer_Mat.webp"
     },
     {
       "Id": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\bd0dde7b-36be-40a6-b6b2-0e731a110d25iphone-15-pro-blue_titanium_5.jpg",

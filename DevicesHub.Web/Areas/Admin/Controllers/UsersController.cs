@@ -1,10 +1,12 @@
-﻿using System.Security.Claims;
+﻿using System.Collections.Specialized;
+using System.Security.Claims;
 using DevicesHub.Application.External;
 using DevicesHub.Domain.Models;
 using DevicesHub.Infrastructure.Data.Contexts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Operations;
 using Microsoft.EntityFrameworkCore;
 
 namespace DevicesHub.Web.Areas.Admin.Controllers
@@ -27,10 +29,10 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
             return View(Users);
         }
 
-        public async Task<IActionResult> LockUnlock(string? id)
+        public async Task<IActionResult> LockUnlock(string? Id)
         {
             //var user = await context.applicationUsers.FirstOrDefaultAsync(U => U.Id == id);
-            var user = await _userManager.FindByIdAsync(id);
+            var user = await _userManager.FindByIdAsync(Id);
             if (user == null)
                 return NotFound();
 
@@ -43,7 +45,23 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
                 user.LockoutEnd = DateTime.Now;
             }
             await _userManager.UpdateAsync(user);
-            return RedirectToAction(nameof(Index), nameof(UsersController), new { area = SD.AdminRole });
+			TempData["Delete"] = "User Has Been Locked Successfully";
+
+			return RedirectToAction(nameof(Index), new { area = SD.AdminRole });
+        }
+        public async Task<IActionResult> Delete(string? Id)
+        {
+            if(Id is null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+           var user= await _userManager.FindByIdAsync(Id); 
+           if(user is not null)
+            {
+                await _userManager.DeleteAsync(user);
+                TempData["Delete"] = "User Has Been Delete Successfully";
+            }
+            return RedirectToAction(nameof(Index));
         }
 
     }

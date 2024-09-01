@@ -1,0 +1,64 @@
+﻿@model IEnumerable<OrderHeader>
+@{
+    ViewBag.PageTitle = "User Orders";
+    ViewBag.PageTitle = "View Orders";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<div class="container my-4">
+    <h2 class="text-center mb-4">@ViewBag.PageTitle</h2>
+
+    <div class="table-responsive">
+        <table id="mytable" class="table table-striped table-bordered table-hover" width="100%">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Order Status</th>
+                    <th>Payment Status</th>
+                    <th>Payment Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.Id</td>
+                        <td>@i.Name</td>
+                        <td>@i.Phone</td>
+                        <td>
+                            @if (i.OrderStatus == "Completed")
+                            {
+                                <span class="badge bg-success">@i.OrderStatus</span>
+                            }
+                            else if (i.OrderStatus == "Pending")
+                            {
+                                <span class="badge bg-warning">@i.OrderStatus</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">@i.OrderStatus</span>
+                            }
+                        </td>
+                        <td>
+                            @if (i.PaymentStatus == "Paid")
+                            {
+                                <span class="badge bg-success">@i.PaymentStatus</span>
+                            }
+                            else if (i.PaymentStatus == "Pending")
+                            {
+                                <span class="badge bg-warning">@i.PaymentStatus</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">@i.PaymentStatus</span>
+                            }
+                        </td>
+                        <td>@i.PaymentDate.ToString("MM/dd/yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

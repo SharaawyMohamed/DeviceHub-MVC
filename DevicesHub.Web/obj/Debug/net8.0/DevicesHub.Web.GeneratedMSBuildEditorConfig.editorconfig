@@ -70,6 +70,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/ROUTE/Projects/DeviceHub-MVC-/DevicesHub.Web/Areas/Admin/Views/Users/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/ROUTE/Projects/DeviceHub-MVC-/DevicesHub.Web/Areas/Admin/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -100,6 +104,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/ROUTE/Projects/DeviceHub-MVC-/DevicesHub.Web/Areas/Customer/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/ROUTE/Projects/DeviceHub-MVC-/DevicesHub.Web/Areas/Customer/Views/Home/UserOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcSG9tZVxVc2VyT3JkZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/ROUTE/Projects/DeviceHub-MVC-/DevicesHub.Web/Areas/Customer/Views/_ViewImports.cshtml]

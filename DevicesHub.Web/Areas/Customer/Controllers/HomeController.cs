@@ -1,5 +1,7 @@
 ﻿using System.Security.Claims;
 using DevicesHub.Application.External;
+using DevicesHub.Application.Services;
+using DevicesHub.Application.ViewModels;
 using DevicesHub.Domain.Interfaces;
 using DevicesHub.Domain.Models;
 using DevicesHub.Domain.Services;
@@ -16,13 +18,17 @@ namespace DevicesHub.Web.Areas.Customer.Controllers
         private readonly IUnitOfWork unitOfWork;
         private readonly IProductService _productService;
         private readonly IShoppingCartService _shoppingCartService;
-        public HomeController(IUnitOfWork _unitOfWork, IProductService productService, IShoppingCartService shoppingCartService)
-        {
-            unitOfWork = _unitOfWork;
-            _productService = productService;
-            _shoppingCartService = shoppingCartService;
-        }
-        public async Task<IActionResult> Index(int? page)
+        private readonly IOrderHeaderService _orderHeaderService;
+        private readonly IOrderDetailsService _orderDetailsService;
+		public HomeController(IUnitOfWork _unitOfWork, IProductService productService, IShoppingCartService shoppingCartService, IOrderHeaderService orderService, IOrderDetailsService orderDetailsService)
+		{
+			unitOfWork = _unitOfWork;
+			_productService = productService;
+			_shoppingCartService = shoppingCartService;
+			_orderHeaderService = orderService;
+			_orderDetailsService = orderDetailsService;
+		}
+		public async Task<IActionResult> Index(int? page)
         {
             var PageNumber = page ?? 1;
             var PageSize = 4;
@@ -66,5 +72,17 @@ namespace DevicesHub.Web.Areas.Customer.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> UserOrders()
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            var userId = claim.Value;
+
+            var orderHeader = await _orderHeaderService.GetAllOrderHeadersAsync(O => O.ApplicationUserId == claim.Value);
+
+            
+			return View(orderHeader);
+		}
     }
 }

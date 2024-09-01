@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gN3bfNpa5LeJbHvA67IQWghtGBrDgd2+qW4Kw2y99WQ=",
+  "Hash": "TnObEeLaO67mxSNB3BU+wGT/7m+Bt4cQpqrhtzoyOQM=",
   "Source": "DevicesHub.Web",
   "BasePath": "_content/DevicesHub.Web",
   "Mode": "Default",
@@ -815,25 +815,6 @@
       "OriginalItemSpec": "wwwroot\\Images\\Products\\2fc6cbd6-ab30-4d9c-88d5-2d449ff52c62Samsung-Galaxy-S24-Ultra-5G.jpg"
     },
     {
-      "Identity": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\3cc5cd37-354d-4fd1-81de-86d116cdb1b6desk.webp",
-      "SourceId": "DevicesHub.Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\",
-      "BasePath": "_content/DevicesHub.Web",
-      "RelativePath": "Images/Products/3cc5cd37-354d-4fd1-81de-86d116cdb1b6desk.webp",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Products\\3cc5cd37-354d-4fd1-81de-86d116cdb1b6desk.webp"
-    },
-    {
       "Identity": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\782941d2-7093-4d10-86de-0beb8ffd4bcemacbook.jpg",
       "SourceId": "DevicesHub.Web",
       "SourceType": "Discovered",
@@ -889,6 +870,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Products\\9cdcd788-9550-44fb-8bcd-f94b61203fe4macbook.jpg"
+    },
+    {
+      "Identity": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\b2cd9371-7392-4366-8625-c6a5fae9dc59On_Prayer_Mat.webp",
+      "SourceId": "DevicesHub.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\",
+      "BasePath": "_content/DevicesHub.Web",
+      "RelativePath": "Images/Products/b2cd9371-7392-4366-8625-c6a5fae9dc59On_Prayer_Mat.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Products\\b2cd9371-7392-4366-8625-c6a5fae9dc59On_Prayer_Mat.webp"
     },
     {
       "Identity": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\bd0dde7b-36be-40a6-b6b2-0e731a110d25iphone-15-pro-blue_titanium_5.jpg",

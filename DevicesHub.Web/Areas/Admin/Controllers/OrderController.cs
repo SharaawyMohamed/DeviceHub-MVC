@@ -30,7 +30,7 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> GetData()
         {
-            var orderHeaders = await _orderDetailsService.GetAllOrdersDetailsAsync(IncludeWord: "ApplicationUser");
+            var orderHeaders = await _orderHeaderService.GetAllOrderHeadersAsync(IncludeWord: "ApplicationUser");
             return Json(new { data = orderHeaders });
         }
 
@@ -38,8 +38,8 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
         {
             var orderViewModel = new OrderViewModel()
             {
-                OrderHeader = await _orderHeaderService.GetFirstOrderHeadersAsync(O => O.Id == orderid, "ApplicationUser"),
-                OrdersDetails = await _orderDetailsService.GetAllOrdersDetailsAsync(O => O.OrderHeaderId == orderid, "Product")
+                OrderHeader = await _orderHeaderService.GetFirstOrderHeadersAsync(O => O.Id == orderid,IncludeWord: "ApplicationUser"),
+                OrdersDetails = await _orderDetailsService.GetAllOrdersDetailsAsync(O => O.OrderHeaderId == orderid,IncludeWord: "Product")
             };
             return View(orderViewModel);
         }
@@ -53,6 +53,8 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
             order.Phone = orderViewModel.OrderHeader.Phone;
             order.Address = orderViewModel.OrderHeader.Address;
             order.City = orderViewModel.OrderHeader.City;
+            order.PaymentStatus = orderViewModel.OrderHeader.PaymentStatus;
+
             if (orderViewModel.OrderHeader.Carrier != null)
             {
                 order.Carrier = orderViewModel.OrderHeader.Carrier;
@@ -70,7 +72,7 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
             {
                 TempData["Edit"] = "Oops...,Order hasn't updated.";
             }
-            return RedirectToAction(nameof(Details), nameof(OrderController), new { orderid = order.Id });
+            return RedirectToAction(nameof(Details), new { orderid = order.Id });
         }
 
         [HttpPost]
@@ -110,7 +112,7 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
             {
                 TempData["Edit"] = "Oops...., Order hasn't shipped ";
             }
-            return RedirectToAction(nameof(Details),nameof(OrderController), new { orderid = orderViewModel.OrderHeader.Id });
+            return RedirectToAction(nameof(Details), new { orderid = orderViewModel.OrderHeader.Id });
         }
 
 
@@ -136,7 +138,7 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
             }
 
             TempData["Edit"] = "Order  has been cancelled successfully";
-            return RedirectToAction(nameof(Details),nameof(OrderController), new { orderid = orderViewModel.OrderHeader.Id });
+            return RedirectToAction(nameof(Details), new { orderid = orderViewModel.OrderHeader.Id });
         }
     }
 }

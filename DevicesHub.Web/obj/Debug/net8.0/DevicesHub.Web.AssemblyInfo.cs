@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DevicesHub.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e911b59895e13650e64ff749ec55a9b7158c6d7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43865b3e39a92146694b00a9091045bfc823097c")]
 [assembly: System.Reflection.AssemblyProductAttribute("DevicesHub.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DevicesHub.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
