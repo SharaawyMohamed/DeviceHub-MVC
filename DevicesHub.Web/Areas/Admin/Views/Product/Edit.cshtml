@@ -1,4 +1,4 @@
-﻿@model ProductViewModel
+﻿@model ProductVM
 @inject ICategoryRepository CategoryRepo
 @{
 	var category = new SelectList(await CategoryRepo.GetAllAsync(), "Id", "Name");

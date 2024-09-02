@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TnObEeLaO67mxSNB3BU+wGT/7m+Bt4cQpqrhtzoyOQM=",
+  "Hash": "mqwEl/hk+LRKWd5KOGGZUaKhckWvagzAH93ABRq61W8=",
   "Source": "DevicesHub.Web",
   "BasePath": "_content/DevicesHub.Web",
   "Mode": "Default",
@@ -832,6 +832,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Products\\782941d2-7093-4d10-86de-0beb8ffd4bcemacbook.jpg"
+    },
+    {
+      "Identity": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\7a1c9488-8bb6-4210-8439-12cbb3749ebfdesk.webp",
+      "SourceId": "DevicesHub.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\",
+      "BasePath": "_content/DevicesHub.Web",
+      "RelativePath": "Images/Products/7a1c9488-8bb6-4210-8439-12cbb3749ebfdesk.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Products\\7a1c9488-8bb6-4210-8439-12cbb3749ebfdesk.webp"
     },
     {
       "Identity": "F:\\ROUTE\\Projects\\DeviceHub-MVC-\\DevicesHub.Web\\wwwroot\\Images\\Products\\7e3c3ccf-a215-42e3-b4bf-e7abd55d8d31nothing.png",

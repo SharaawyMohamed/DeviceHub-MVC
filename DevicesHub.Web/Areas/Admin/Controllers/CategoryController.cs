@@ -2,11 +2,15 @@
 using DevicesHub.Domain.Interfaces;
 using DevicesHub.Domain.Models;
 using DevicesHub.Domain.Services;
+using DevicesHub.Domain.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevicesHub.Web.Areas.Admin.Controllers
 {
     [Area(SD.AdminRole)]
+    [Authorize(Roles = SD.AdminRole)]
+
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
@@ -20,6 +24,7 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
             var categories = await _categoryService.GetAllCategoryAsync();
             return View(categories);
         }
+        [Authorize(Roles = SD.AdminRole)]
 
         public async Task<IActionResult> Create()
         {
@@ -28,27 +33,27 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Category category)
+        [Authorize(Roles = SD.AdminRole)]
+
+        public async Task<IActionResult> Create(CategoryVM category)
         {
             if (ModelState.IsValid)
             {
                 var done = await _categoryService.AddCategoryAsync(category);
                 if (done > 0)
                 {
-                    //await _orderDetailsService.Category.AddCategoryAsync(category);
-                    //await _orderDetailsService.CompleteAsync();
                     TempData["Create"] = "Data has been created successfully";
                     return RedirectToAction(nameof(Index));
                 }
             }
             return View(category);
         }
+
         public async Task<IActionResult> Edit(int? id)
         {
 
             if (id == null || id == 0) return NotFound();
             var category = await _categoryService.GetFirstCategoryAsync(C => C.Id == id);
-            // var category = await _orderDetailsService.Category.GetFirstAsync(C => C.Id == id);
             if (category is null)
             {
                 return NotFound();
@@ -57,12 +62,12 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Category category)
+
+        public async Task<IActionResult> Edit(CategoryVM category)
         {
             if (ModelState.IsValid)
             {
-                //_orderDetailsService.Category.Update(category);
-                //await _orderDetailsService.CompleteAsync();
+               
                 var done = await _categoryService.UpdateCategoryAsync(category);
                 if (done > 0)
                 {
@@ -77,10 +82,10 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
             return View(category);
         }
         [HttpGet]
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || id == 0) return NotFound();
-            // var category = await _orderDetailsService.Category.GetFirstAsync(C => C.Id == id);
             var category = await _categoryService.GetFirstCategoryAsync(c => c.Id == id);
             if (category is null)
             {
@@ -91,13 +96,11 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(Category category)
+
+        public async Task<IActionResult> Delete(CategoryVM category)
         {
             if (ModelState.IsValid)
             {
-
-                //_orderDetailsService.Category.Remove(category);
-                //await _orderDetailsService.CompleteAsync();
                 var done = await _categoryService.RemoveCategoryAsync(category);
                 if (done > 0)
                 {

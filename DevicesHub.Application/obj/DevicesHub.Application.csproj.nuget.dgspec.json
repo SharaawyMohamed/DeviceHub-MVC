@@ -56,9 +56,17 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.7.1.1, )"
+            },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.7.1, )"
             }
           },
           "imports": [
@@ -133,6 +141,10 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.7.1, )"
             }
           },
           "imports": [

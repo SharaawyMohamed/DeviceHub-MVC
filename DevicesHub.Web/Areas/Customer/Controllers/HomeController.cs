@@ -1,10 +1,11 @@
 ﻿using System.Security.Claims;
+using AutoMapper;
 using DevicesHub.Application.External;
 using DevicesHub.Application.Services;
-using DevicesHub.Application.ViewModels;
 using DevicesHub.Domain.Interfaces;
 using DevicesHub.Domain.Models;
 using DevicesHub.Domain.Services;
+using DevicesHub.Domain.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList;
@@ -20,19 +21,21 @@ namespace DevicesHub.Web.Areas.Customer.Controllers
         private readonly IShoppingCartService _shoppingCartService;
         private readonly IOrderHeaderService _orderHeaderService;
         private readonly IOrderDetailsService _orderDetailsService;
-		public HomeController(IUnitOfWork _unitOfWork, IProductService productService, IShoppingCartService shoppingCartService, IOrderHeaderService orderService, IOrderDetailsService orderDetailsService)
-		{
-			unitOfWork = _unitOfWork;
-			_productService = productService;
-			_shoppingCartService = shoppingCartService;
-			_orderHeaderService = orderService;
-			_orderDetailsService = orderDetailsService;
-		}
-		public async Task<IActionResult> Index(int? page)
+        private readonly IMapper _mapper;
+        public HomeController(IUnitOfWork _unitOfWork, IProductService productService, IShoppingCartService shoppingCartService, IOrderHeaderService orderService, IOrderDetailsService orderDetailsService, IMapper mapper)
+        {
+            unitOfWork = _unitOfWork;
+            _productService = productService;
+            _shoppingCartService = shoppingCartService;
+            _orderHeaderService = orderService;
+            _orderDetailsService = orderDetailsService;
+            _mapper = mapper;
+        }
+        public async Task<IActionResult> Index(int? page)
         {
             var PageNumber = page ?? 1;
-            var PageSize = 4;
-            var products = await (await _productService.GetAllProductsAsync()).ToPagedListAsync(PageNumber, PageSize);
+            var PageSize = 8;
+            var products= await _mapper.Map<IEnumerable<Product>>(await _productService.GetAllProductsAsync()).ToPagedListAsync(PageNumber, PageSize);
             return View(products);
         }
 
@@ -41,7 +44,7 @@ namespace DevicesHub.Web.Areas.Customer.Controllers
             ShoppingCart obj = new ShoppingCart()
             {
                 ProductId = ProductId,
-                Product = await _productService.GetFirstProductAsync(P => P.Id == ProductId, "Category"),
+                Product =_mapper.Map<Product>( await _productService.GetFirstProductAsync(P => P.Id == ProductId, "Category")),
                 Count = 1
             };
             return View(obj);

@@ -1,7 +1,7 @@
 ﻿
 using AutoMapper;
-using DevicesHub.Application.ViewModels;
 using DevicesHub.Domain.Models;
+using DevicesHub.Domain.ViewModels;
 
 namespace DevicesHub.Application.MappingProfiles
 {
@@ -9,7 +9,7 @@ namespace DevicesHub.Application.MappingProfiles
     {
         public ProductProfile()
         {
-            CreateMap<ProductViewModel, Product>().ReverseMap();
+            CreateMap<ProductVM, Product>().ReverseMap();
         }
     }
 }

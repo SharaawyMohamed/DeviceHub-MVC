@@ -1,15 +1,18 @@
 ﻿using AutoMapper;
 using DevicesHub.Application.External;
 using DevicesHub.Application.Settings;
-using DevicesHub.Application.ViewModels;
 using DevicesHub.Domain.Interfaces;
 using DevicesHub.Domain.Models;
 using DevicesHub.Domain.Services;
+using DevicesHub.Domain.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevicesHub.Web.Areas.Admin.Controllers
 {
     [Area(SD.AdminRole)]
+    [Authorize(Roles = SD.AdminRole)]
+
     public class ProductController : Controller
     {
         private readonly IMapper mapper;
@@ -24,14 +27,11 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //var Products = await _orderDetailsService.Product.GetAllAsync(IncludeWord: "Category"); // 
             var products = await _productService.GetAllProductsAsync(IncludeWord: "Category");
-            var MappedProduct = mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(products);
-            return View(MappedProduct);
+            return View(products);
         }
         public async Task<IActionResult> GetData()
         {
-            // var Products = await _orderDetailsService.Product.GetAllAsync(IncludeWord: "Category"); // 
             var Products = await _productService.GetAllProductsAsync(IncludeWord: "Category");
             var TotalRecords = Products.Count();
             var JsonFile = new { data = Products };
@@ -44,14 +44,12 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ProductViewModel productVM)
+        public async Task<IActionResult> Create(ProductVM entity)
         {
             if (ModelState.IsValid)
             {
-                productVM.ImageName = DocumentSettings.UploadFile(productVM.Image, "Products");
-                var MappedProduct = mapper.Map<ProductViewModel, Product>(productVM);
                 
-                var Created = await _productService.AddProductAsync(MappedProduct);
+                var Created = await _productService.AddProductAsync(entity);
                 if (Created > 0)
                 {
                     TempData["Create"] = "Data has been created successfully";
@@ -62,34 +60,28 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(productVM);
+            return View(entity);
         }
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || id == 0) return NotFound();
-            var product = await _productService.GetFirstProductAsync(IncludeWord: "Category");//_orderDetailsService.Product.GetFirstAsync(C => C.Id == id, "Category");
+            var product = await _productService.GetFirstProductAsync(p=>p.Id==id,IncludeWord: "Category");//_orderDetailsService.Product.GetFirstAsync(C => C.Id == id, "Category");
             if (product == null) return NotFound();
 
-            var MappedProduct = mapper.Map<Product, ProductViewModel>(product);
-            TempData["ImageName"] = MappedProduct.ImageName;
-            return View(MappedProduct);
+            TempData["ImageName"] = product.ImageName;
+            return View(product);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(ProductViewModel product)
+
+        public async Task<IActionResult> Edit(ProductVM product)
         {
             if (ModelState.IsValid)
             {
                 product.ImageName = (string)TempData["ImageName"];
-                if (product.Image != null)
-                {
-                    DocumentSettings.DeleteFile(product.ImageName, "Products");
-                    product.ImageName = DocumentSettings.UploadFile(product.Image, "Products");
-                }
-                var MappedProduct = mapper.Map<ProductViewModel, Product>(product);
-                //_orderDetailsService.Product.Update(MappedProduct);
-                //await _orderDetailsService.CompleteAsync();
-                var Updated = await _productService.UpdateProductAsync(MappedProduct);
+
+                var Updated = await _productService.UpdateProductAsync(product);
                 if (Updated > 0)
                 {
                     TempData["Edit"] = "Data has been Updated successfully";
@@ -105,12 +97,13 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
         }
 
         [HttpDelete]
+
         public async Task<IActionResult> Delete(int? id)
         {
-            var product = await _productService.GetFirstProductAsync(x => x.Id == id);//_orderDetailsService.Product.GetFirstAsync(X => X.Id == id);
+            var product = await _productService.GetFirstProductAsync(x => x.Id == id);
             if (product == null)
                 return Json(new { success = false, message = "Error while deleting the product" });
-            //_orderDetailsService.Product.Remove(product);
+
             var Removed = await _productService.RemoveProductAsync(product);
             if (Removed > 0)
             {
@@ -121,7 +114,6 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
             {
                 return Json(new { fail = true, message = "product hasn't deleted." });
             }
-            //_orderDetailsService.CompleteAsync();
         }
     }
 

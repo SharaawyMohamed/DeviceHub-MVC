@@ -3,6 +3,7 @@ using DevicesHub.Web.SeedAdmin;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Stripe;
+using System.Diagnostics;
 
 namespace DevicesHub.Web
 {
@@ -10,13 +11,16 @@ namespace DevicesHub.Web
     {
         public static async Task Main(string[] args)
         {
+            // Ensure all packages are installed
+           
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
             // Service Extension for additional services
-            builder.Services.AddAppService(builder.Configuration);
+            builder.Services.ConfigureServices(builder.Configuration);
 
             // Additional services
             builder.Services.AddMemoryCache();

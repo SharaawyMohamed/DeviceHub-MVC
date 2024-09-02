@@ -1,8 +1,8 @@
 ﻿using DevicesHub.Application.External;
-using DevicesHub.Application.ViewModels;
 using DevicesHub.Domain.Interfaces;
 using DevicesHub.Domain.Models;
 using DevicesHub.Domain.Services;
+using DevicesHub.Domain.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Stripe;
@@ -89,7 +89,7 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
                 TempData["Edit"] = "Oops...., Order status hasn't updated.";
 
             }
-            return RedirectToAction(nameof(Details), nameof(OrderController), new { orderid = orderViewModel.OrderHeader.Id });
+            return RedirectToAction(nameof(Details), new { orderid = orderViewModel.OrderHeader.Id });
         }
 
 

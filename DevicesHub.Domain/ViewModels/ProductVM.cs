@@ -5,9 +5,9 @@ using DevicesHub.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
-namespace DevicesHub.Application.ViewModels
+namespace DevicesHub.Domain.ViewModels
 {
-    public class ProductViewModel
+    public class ProductVM
     {
         public int Id { get; set; }
         [Required]

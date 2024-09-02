@@ -1,9 +1,9 @@
 ﻿using System.Security.Claims;
 using DevicesHub.Application.External;
-using DevicesHub.Application.ViewModels;
 using DevicesHub.Domain.Interfaces;
 using DevicesHub.Domain.Models;
 using DevicesHub.Domain.Services;
+using DevicesHub.Domain.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Stripe.Checkout;

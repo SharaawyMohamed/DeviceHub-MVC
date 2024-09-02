@@ -1,4 +1,5 @@
 ﻿using DevicesHub.Domain.Models;
+using DevicesHub.Domain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,11 @@ namespace DevicesHub.Domain.Services
 {
     public interface ICategoryService
     {
-        Task<IEnumerable<Category>> GetAllCategoryAsync(Expression<Func<Category, bool>>? predicate = null, string? IncludeWord = null);
-        Task<Category> GetFirstCategoryAsync(Expression<Func<Category, bool>>? predicate = null, string? IncludeWord = null);
-        Task<int> UpdateCategoryAsync(Category entity);
-        Task<int> AddCategoryAsync(Category entity);
-        Task<int> RemoveCategoryAsync(Category entity);
-        Task<int> RemoveRangeOfCategoriesAsync(IEnumerable<Category> entities);
+        Task<IEnumerable<CategoryVM>> GetAllCategoryAsync(Expression<Func<Category, bool>>? predicate = null, string? IncludeWord = null);
+        public Task<CategoryVM>? GetFirstCategoryAsync(Expression<Func<Category, bool>>? predicate = null, string? IncludeWord = null);
+
+        Task<int> UpdateCategoryAsync(CategoryVM entity);
+        Task<int> AddCategoryAsync(CategoryVM entity);
+        Task<int> RemoveCategoryAsync(CategoryVM entity);
     }
 }

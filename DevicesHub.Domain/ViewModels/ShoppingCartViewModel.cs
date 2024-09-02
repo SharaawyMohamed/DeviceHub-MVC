@@ -1,6 +1,6 @@
 ﻿using DevicesHub.Domain.Models;
 
-namespace DevicesHub.Application.ViewModels
+namespace DevicesHub.Domain.ViewModels
 {
     public class ShoppingCartViewModel
     {

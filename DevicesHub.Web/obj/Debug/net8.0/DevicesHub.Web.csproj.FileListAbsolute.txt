@@ -755,7 +755,6 @@ F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\bin\Debug\net8.0\refs\System.dll
 F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\bin\Debug\net8.0\refs\System.Drawing.dll
 F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\bin\Debug\net8.0\refs\System.Drawing.Primitives.dll
 F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\bin\Debug\net8.0\refs\System.Dynamic.Runtime.dll
-F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\bin\Debug\net8.0\refs\System.Formats.Asn1.dll
 F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\bin\Debug\net8.0\refs\System.Formats.Tar.dll
 F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\bin\Debug\net8.0\refs\System.Globalization.Calendars.dll
 F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\bin\Debug\net8.0\refs\System.Globalization.dll
@@ -1137,3 +1136,7 @@ F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\obj\Debug\net8.0\refint\DevicesH
 F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\obj\Debug\net8.0\DevicesHub.Web.pdb
 F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\obj\Debug\net8.0\DevicesHub.Web.genruntimeconfig.cache
 F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\obj\Debug\net8.0\ref\DevicesHub.Web.dll
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\bin\Debug\net8.0\MailKit.dll
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\bin\Debug\net8.0\MimeKit.dll
+F:\ROUTE\Projects\DeviceHub-MVC-\DevicesHub.Web\bin\Debug\net8.0\System.Formats.Asn1.dll

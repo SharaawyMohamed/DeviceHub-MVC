@@ -1,7 +1,6 @@
 ﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
-using DevicesHub.Application.ViewModels;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -15,6 +14,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using RequiredAttribute = System.ComponentModel.DataAnnotations.RequiredAttribute;
 using DevicesHub.Application.External;
 using DevicesHub.Web.Areas.Admin.Controllers;
+using DevicesHub.Domain.Services;
 namespace DevicesHub.Web.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
@@ -24,14 +24,14 @@ namespace DevicesHub.Web.Areas.Identity.Pages.Account
         private readonly IUserStore<ApplicationUser> _userStore;
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
-        private readonly IEmailSender _emailSender;
+        private readonly IMailService _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender,
+            IMailService emailSender,
             RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
@@ -134,8 +134,14 @@ namespace DevicesHub.Web.Areas.Identity.Pages.Account
                     }
                     await _userManager.AddToRoleAsync(user, Role);
                     await _signInManager.SignInAsync(user, isPersistent: false);
+                    var email = new Email()
+                    {
+                        To = user.Email,
+                        Subject = "Welcome Dear In Our Website",
+                    };
+                    await _emailSender.SendEmailAsync(email); 
+                    
                     return LocalRedirect(returnUrl);
-
                     #region MyRegion
 
 

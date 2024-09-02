@@ -1,4 +1,5 @@
 ﻿using DevicesHub.Domain.Models;
+using DevicesHub.Domain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,10 @@ namespace DevicesHub.Domain.Services
 {
     public interface IProductService
     {
-        Task<IEnumerable<Product>> GetAllProductsAsync(Expression<Func<Product, bool>>? predicate = null, string? IncludeWord = null);
-        Task<Product> GetFirstProductAsync(Expression<Func<Product, bool>>? predicate = null, string? IncludeWord = null);
-        Task<int> UpdateProductAsync(Product entity);
-        Task<int> AddProductAsync(Product entity);
-        Task<int> RemoveProductAsync(Product entity);
-        Task<int> RemoveRangeOfProductsAsync(IEnumerable<Product> entities);
+        Task<IEnumerable<ProductVM>> GetAllProductsAsync(Expression<Func<Product, bool>>? predicate = null, string? IncludeWord = null);
+        Task<ProductVM> GetFirstProductAsync(Expression<Func<Product, bool>>? predicate = null, string? IncludeWord = null);
+        Task<int> UpdateProductAsync(ProductVM entity);
+        Task<int> AddProductAsync(ProductVM entity);
+        Task<int> RemoveProductAsync(ProductVM entity);
     }
 }

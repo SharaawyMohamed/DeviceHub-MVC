@@ -1,6 +1,8 @@
-﻿using DevicesHub.Domain.Interfaces;
+﻿using AutoMapper;
+using DevicesHub.Domain.Interfaces;
 using DevicesHub.Domain.Models;
 using DevicesHub.Domain.Services;
+using DevicesHub.Domain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,44 +15,44 @@ namespace DevicesHub.Application.Services
     public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _repo;
-        private readonly Domain.Interfaces.IUnitOfWork _unitOfWork;
-        public CategoryService(Domain.Interfaces.IUnitOfWork unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
+        public CategoryService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public async Task<int> AddCategoryAsync(Category entity)
+        public async Task<int> AddCategoryAsync(CategoryVM entity)
         {
-            await _unitOfWork.Repository<Category>().AddAsync(entity);
+            var maped=_mapper.Map<Category>(entity);
+            await _unitOfWork.Repository<Category>().AddAsync(maped);
             return await _unitOfWork.CompleteAsync();
         }
 
-        public async Task<IEnumerable<Category>>? GetAllCategoryAsync(Expression<Func<Category, bool>>? predicate = null, string? IncludeWord = null)
+        public async Task<IEnumerable<CategoryVM>>? GetAllCategoryAsync(Expression<Func<Category, bool>>? predicate = null, string? IncludeWord = null)
         {
-            return await (_unitOfWork.Repository<Category>().GetAllAsync(predicate, IncludeWord))!;
+            var Categories = await (_unitOfWork.Repository<Category>().GetAllAsync(predicate, IncludeWord))!;
+            var mapped= _mapper.Map<IEnumerable<CategoryVM>>(Categories);
+            return mapped;
+        }
+        public async Task<CategoryVM>? GetFirstCategoryAsync(Expression<Func<Category, bool>>? predicate = null, string? IncludeWord = null)
+        {
+            var category=await _unitOfWork.Repository<Category>().GetFirstAsync(predicate, IncludeWord);
+            return _mapper.Map<CategoryVM>(category);
         }
 
-        public async Task<Category>? GetFirstCategoryAsync(Expression<Func<Category, bool>>? predicate = null, string? IncludeWord = null)
+        public async Task<int> RemoveCategoryAsync(CategoryVM entity)
         {
-
-            return await (_unitOfWork.Repository<Category>().GetFirstAsync(predicate, IncludeWord))!;
-        }
-
-        public async Task<int> RemoveCategoryAsync(Category entity)
-        {
-            _unitOfWork.Repository<Category>().Remove(entity);
+            var mapped = _mapper.Map<Category>(entity);
+            _unitOfWork.Repository<Category>().Remove(mapped);
             return await _unitOfWork.CompleteAsync();
         }
 
-        public async Task<int> RemoveRangeOfCategoriesAsync(IEnumerable<Category> entities)
+        public async Task<int> UpdateCategoryAsync(CategoryVM entity)
         {
-            _unitOfWork.Repository<Category>().RemoveRange(entities);
-            return await _unitOfWork.CompleteAsync();
-        }
-
-        public async Task<int> UpdateCategoryAsync(Category entity)
-        {
-            _unitOfWork.Repository<Category>().Update(entity);
+            var mapped = _mapper.Map<Category>(entity);
+            _unitOfWork.Repository<Category>().Update(mapped);
             return await _unitOfWork.CompleteAsync();
         }
     }
