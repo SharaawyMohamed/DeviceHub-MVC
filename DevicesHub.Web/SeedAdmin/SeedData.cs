@@ -29,9 +29,10 @@ namespace DevicesHub.Web.SeedAdmin
 
             if (adminUser == null)
             {
+                
                 adminUser = new ApplicationUser
                 {
-                    UserName = adminEmail,
+                    UserName = "Admin",
                     Email = adminEmail,
                     Name = "Sharawy Mohamed",
                     Address = "El-Monsha, Sohag, Egypt",

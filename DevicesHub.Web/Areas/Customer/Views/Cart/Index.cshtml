@@ -32,6 +32,9 @@
                                                 <div class="product-name">
                                                     <a href="#">@item.Product.Name</a>
                                                     <div class="product-info">
+                                                        <div>Price: <span class="Price">@item.Product.Price</span></div>
+                                                    </div>
+                                                    <div class="product-info">
                                                         <div>Description: <span class="value">@item.Product.Description</span></div>
                                                     </div>
                                                 </div>
@@ -39,7 +42,7 @@
                                             <div class="col-md-2 d-flex align-items-center">
                                                 <div class="btn-group" role="group">
                                                     <a class="btn btn-outline-secondary" asp-action="Plus" asp-route-cartId="@item.Id">+</a>
-                                                    <span class="mx-2">@item.Count</span>
+                                                    <span class="mx-2"style="color:black">@item.Count</span>
                                                     <a class="btn btn-outline-secondary" asp-action="Minus" asp-route-cartId="@item.Id">-</a>
                                                 </div>
                                             </div>
@@ -54,8 +57,8 @@
                         </div>
                         <div class="col-md-12 col-lg-4">
                             <div class="summary">
-                                <h3>Summary</h3>
-                                <div class="summary-item"><span class="text">Total:</span><span class="price">$@Model.OrderHeader.TotalPrice.ToString("N2")</span></div>
+                                <h3 style="color:black">Summary</h3>
+                                <div class="summary-item" style="color:black"><span class="text">Total:</span><span class="price">$@Model.OrderHeader.TotalPrice.ToString("N2")</span></div>
                                 <a asp-action="Summary" class="btn btn-primary btn-lg btn-block">Summary</a>
                             </div>
                         </div>

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DevicesHub.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de392bd283190a2f4aaa8ef398fd908d49cf9709")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0d0252fb9e3c27a491cc812efe96f2d6a848a1b")]
 [assembly: System.Reflection.AssemblyProductAttribute("DevicesHub.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DevicesHub.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

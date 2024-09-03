@@ -51,9 +51,9 @@
                                     {
                                         <span class="badge bg-warning text-dark">@i.PaymentStatus</span>
                                     }
-                                    else
+                                    else if(i.PaymentStatus==SD.Approve)
                                     {
-                                        <span class="badge bg-danger">@i.PaymentStatus</span>
+                                        <span class="badge bg-success">@i.PaymentStatus</span>
                                     }
                                 </td>
                                 <td>@i.PaymentDate.ToString("MM/dd/yyyy")</td>

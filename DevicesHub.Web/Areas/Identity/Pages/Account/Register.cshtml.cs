@@ -70,7 +70,9 @@ namespace DevicesHub.Web.Areas.Identity.Pages.Account
         {
             [Required]
             public string Name { get; set; }
+            [Required]
             public string Address { get; set; }
+            [Required]
             public string City { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -78,6 +80,7 @@ namespace DevicesHub.Web.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [EmailAddress]
+            [DataType(DataType.EmailAddress)]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -110,10 +113,21 @@ namespace DevicesHub.Web.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            var User = await _userManager.FindByEmailAsync(Input.Email);
+            if(User != null)
+            {
+                ModelState.AddModelError(string.Empty, "Email Already Exist.");
+                return Page();
+            }
             if (ModelState.IsValid)
             {
+                
                 var user = CreateUser();
                 var userName = Input.Email.Split('@')[0];
                 await _userStore.SetUserNameAsync(user, userName, CancellationToken.None);
@@ -122,7 +136,7 @@ namespace DevicesHub.Web.Areas.Identity.Pages.Account
                 user.City = Input.City;
                 user.Address = Input.Address;
                 var result = await _userManager.CreateAsync(user, Input.Password);
-
+                
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");

@@ -15,6 +15,7 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
     [Authorize(Roles = SD.AdminRole)]
     public class UsersController : Controller
     {
+        private int lockstate = 0;
         private readonly UserManager<ApplicationUser> _userManager;
         public UsersController(UserManager<ApplicationUser> userManager)
         {
@@ -31,7 +32,6 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
 
         public async Task<IActionResult> LockUnlock(string? Id)
         {
-            //var user = await context.applicationUsers.FirstOrDefaultAsync(U => U.Id == id);
             var user = await _userManager.FindByIdAsync(Id);
             if (user == null)
                 return NotFound();
@@ -39,24 +39,26 @@ namespace DevicesHub.Web.Areas.Admin.Controllers
             if (user.LockoutEnd == null || user.LockoutEnd < DateTime.Now)
             {
                 user.LockoutEnd = DateTime.Now.AddHours(4);
+                TempData["Delete"] = "User Has Been Locked Successfully";
             }
             else
             {
                 user.LockoutEnd = DateTime.Now;
+                TempData["Edit"] = "User UnLocked Successfully";
+
             }
             await _userManager.UpdateAsync(user);
-			TempData["Delete"] = "User Has Been Locked Successfully";
 
-			return RedirectToAction(nameof(Index), new { area = SD.AdminRole });
+            return RedirectToAction(nameof(Index), new { area = SD.AdminRole });
         }
         public async Task<IActionResult> Delete(string? Id)
         {
-            if(Id is null)
+            if (Id is null)
             {
                 return RedirectToAction(nameof(Index));
             }
-           var user= await _userManager.FindByIdAsync(Id); 
-           if(user is not null)
+            var user = await _userManager.FindByIdAsync(Id);
+            if (user is not null)
             {
                 await _userManager.DeleteAsync(user);
                 TempData["Delete"] = "User Has Been Delete Successfully";

@@ -14,7 +14,7 @@ using SessionService = Stripe.Checkout.SessionService;
 namespace DevicesHub.Web.Areas.Customer.Controllers
 {
     [Area(SD.CustomerRole)]
-   // [Authorize]
+    // [Authorize]
     public class CartController : Controller
     {
         private readonly IShoppingCartService _shoppingCartService;
@@ -110,70 +110,72 @@ namespace DevicesHub.Web.Areas.Customer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Summary(ShoppingCartViewModel shoppingCartViewModel)
         {
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-            shoppingCartViewModel.CartsList = await _shoppingCartService.GetAllShoppingCartsAsync(U => U.ApplicationUserId == claim.Value, "Product");
+                shoppingCartViewModel.CartsList = await _shoppingCartService.GetAllShoppingCartsAsync(U => U.ApplicationUserId == claim.Value, "Product");
 
-            shoppingCartViewModel.OrderHeader.OrderStatus = SD.Pending;
-            shoppingCartViewModel.OrderHeader.PaymentStatus = SD.Pending;
-            shoppingCartViewModel.OrderHeader.OrderDate = DateTime.Now;
-            shoppingCartViewModel.OrderHeader.ApplicationUserId = claim.Value;
+                shoppingCartViewModel.OrderHeader.OrderStatus = SD.Pending;
+                shoppingCartViewModel.OrderHeader.PaymentStatus = SD.Pending;
+                shoppingCartViewModel.OrderHeader.OrderDate = DateTime.Now;
+                shoppingCartViewModel.OrderHeader.ApplicationUserId = claim.Value;
 
-            foreach (var item in shoppingCartViewModel.CartsList)
-            {
-                shoppingCartViewModel.OrderHeader.TotalPrice += item.Count * item.Product.Price;
-            }
-
-            await _orderHeader.AddOrderHeaderAsync(shoppingCartViewModel.OrderHeader);
-
-            foreach (var item in shoppingCartViewModel.CartsList)
-            {
-                OrderDetails orderDetails = new OrderDetails()
+                foreach (var item in shoppingCartViewModel.CartsList)
                 {
-                    ProductId = item.ProductId,
-                    OrderHeaderId = shoppingCartViewModel.OrderHeader.Id,
-                    Price = item.Product.Price,
-                    Count = item.Count
-                };
+                    shoppingCartViewModel.OrderHeader.TotalPrice += item.Count * item.Product.Price;
+                }
 
-                await _orderDetailsService.AddOrderDetailsAsync(orderDetails);
-            }
+                await _orderHeader.AddOrderHeaderAsync(shoppingCartViewModel.OrderHeader);
 
-            var domain = _configuration["DomainSettings:BaseUrl"];//"https://localhost:7157/";
-            var options = new SessionCreateOptions
-            {
-                LineItems = new List<SessionLineItemOptions>(),
-                Mode = "payment",
-                SuccessUrl = domain + $"customer/cart/orderconfirmation?id={shoppingCartViewModel.OrderHeader.Id}",
-                CancelUrl = domain + $"customer/cart/index"
-            };
-
-            foreach (var item in shoppingCartViewModel.CartsList)
-            {
-                var sessionlineoption = new SessionLineItemOptions
+                foreach (var item in shoppingCartViewModel.CartsList)
                 {
-                    PriceData = new SessionLineItemPriceDataOptions
+                    OrderDetails orderDetails = new OrderDetails()
                     {
-                        UnitAmount = (long)(item.Product.Price * 100),
-                        Currency = "usd",
-                        ProductData = new SessionLineItemPriceDataProductDataOptions
-                        {
-                            Name = item.Product.Name
-                        },
-                    },
-                    Quantity = item.Count,
+                        ProductId = item.ProductId,
+                        OrderHeaderId = shoppingCartViewModel.OrderHeader.Id,
+                        Price = item.Product.Price,
+                        Count = item.Count
+                    };
+
+                    await _orderDetailsService.AddOrderDetailsAsync(orderDetails);
+                }
+
+                var domain = _configuration["DomainSettings:BaseUrl"];
+                var options = new SessionCreateOptions
+                {
+                    LineItems = new List<SessionLineItemOptions>(),
+                    Mode = "payment",
+                    SuccessUrl = domain + $"customer/cart/orderconfirmation?id={shoppingCartViewModel.OrderHeader.Id}",
+                    CancelUrl = domain + $"customer/cart/index"
                 };
-                options.LineItems.Add(sessionlineoption);
-            }
 
-            var service = new SessionService();
-            Session session = service.Create(options);
-            shoppingCartViewModel.OrderHeader.SessionId = session.Id;
-            await _unitOfWork.CompleteAsync();
+                foreach (var item in shoppingCartViewModel.CartsList)
+                {
+                    var sessionlineoption = new SessionLineItemOptions
+                    {
+                        PriceData = new SessionLineItemPriceDataOptions
+                        {
+                            UnitAmount = (long)(item.Product.Price * 100),
+                            Currency = "usd",
+                            ProductData = new SessionLineItemPriceDataProductDataOptions
+                            {
+                                Name = item.Product.Name
+                            },
+                        },
+                        Quantity = item.Count,
+                    };
+                    options.LineItems.Add(sessionlineoption);
+                }
 
-            Response.Headers.Add("Location", session.Url);
-            return new StatusCodeResult(303);
+                var service = new SessionService();
+                Session session = service.Create(options);
+                shoppingCartViewModel.OrderHeader.SessionId = session.Id;
+                // _orderDetailsService.RemoveRangeOfOrdersDetailsAsync(shoppingCartViewModel.CartsList)
+                await _unitOfWork.CompleteAsync();
+
+                Response.Headers.Add("Location", session.Url);
+                return new StatusCodeResult(303);
+           
         }
 
         public async Task<IActionResult> OrderConfirmation(int id)

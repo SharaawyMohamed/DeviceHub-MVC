@@ -71,6 +71,7 @@ namespace DevicesHub.Web.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [EmailAddress]
+            [DataType(DataType.EmailAddress)]
             public string Email { get; set; }
 
             /// <summary>
@@ -108,6 +109,11 @@ namespace DevicesHub.Web.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            if (!ModelState.IsValid)
+            {
+                // If the model state is not valid, redisplay the form with validation errors
+                return Page();
+            }
             returnUrl ??= Url.Content("~/");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -126,7 +132,12 @@ namespace DevicesHub.Web.Areas.Identity.Pages.Account
                     //{
                     //    Role = SD.CustomerRole;
                     //}
-                  //  await _userManager.AddToRoleAsync(user, Role);
+                    //  await _userManager.AddToRoleAsync(user, Role);
+                    if (result.IsLockedOut)
+                    {
+                        _logger.LogWarning("User account locked out.");
+                        return RedirectToPage("./Lockout");
+                    }
                     await _signInManager.SignInAsync(user,isPersistent:false);
                     return LocalRedirect(returnUrl);
                 }
